@@ -9,8 +9,13 @@ routerProducts.get('/', (req, res, next) => {
 })
 
 routerProducts.post('/', (req, res, next) => {
+    const product = {
+        name: req.body.name,
+        price: 12
+    }
     res.status(201).json({
-        message: "Adventia Hyppolite"
+        message: "Opa produto foi criado com sucesso!",
+        createdProduct: product
     })
 })
 
@@ -26,7 +31,7 @@ routerProducts.get('/:productId', (req, res, next) => {
         }) 
         }else {
             res.status(200).json({
-                message: "You id is not yet!"
+                message: "Your id is not yet!"
             })
     }
 })
