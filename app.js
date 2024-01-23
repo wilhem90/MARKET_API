@@ -3,11 +3,16 @@ const app = express()
 const morgan = require("morgan")
 const bodyParser = require("body-parser")
 const cors = require('cors')
+const mongoose = require("mongoose")
 
 const routerProducts = require('./api/routes/products')
 const routerOrder = require('./api/routes/order')
-const { ppid, nextTick } = require("process")
 
+mongoose.connect('mongodb+srv://Wilhem90:' + process.env.MONGO_ATLAS_PW + '@cluster0.lbdcfgo.mongodb.net/?retryWrites=true&w=majority',
+{
+    useMongoClient: true
+}
+)
 
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({extended: false}))
