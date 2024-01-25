@@ -1,9 +1,4 @@
-const http = require("http")
-const { app } = require("./app")
-const port = process.env.PORT || 3030
-
-const server = http.createServer(app)
-
-server.listen(port, () => {
-    console.log(`Server is runing now http://localhost:${port}`);
-})
+const express = require("express")
+const app = express()
+const {MongoClient, ServerApiVersion} = require("mongodb")
+const cors = require("cors")
