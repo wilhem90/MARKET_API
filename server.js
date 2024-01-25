@@ -3,9 +3,12 @@ const app = express()
 
 const {MongoClient, ServerApiVersion} = require("mongodb")
 const cors = require("cors")
+const { clearScreenDown } = require("readline")
+require("dotenv").config()
 
-const dotenv = require("dotenv").config()
-console.log(`A porta é: ${process.env.PORT}`);
-console.log(`A sua senha é: ${process.env.SENHA_TO_CONECT}`);
+app.use(cors())
+const port = process.env.PORT
 
-console.log(app);
+app.listen(port, () => {
+    console.log(`O meu primeiro servidor esta rodando: htpp://localhost:${port}`);
+})
